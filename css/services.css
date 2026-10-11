@@ -1,0 +1,26 @@
+@keyframes rise{from{opacity:0;transform:translateY(26px)}}
+.s-hero{padding:170px 0 30px}
+.s-hero h1{font-size:clamp(2.6rem,6vw,4.6rem)}
+.s-hero h1 span{background:linear-gradient(90deg,var(--or),var(--bl));-webkit-background-clip:text;background-clip:text;color:transparent}
+.s-hero p{color:var(--mute);max-width:52ch;margin-top:18px}
+.s-hero .wrap>*{animation:rise 1s var(--ease) both}.s-hero p{animation-delay:.15s!important}
+.list{padding:40px 0 120px}
+.s-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:24px}
+.s-card{grid-column:span 2;position:relative;padding:38px 32px 36px;background:var(--bg2);border:1px solid var(--line);border-radius:22px;overflow:hidden;
+ transition:opacity .9s var(--ease),transform .9s var(--ease),border-color .5s,box-shadow .5s;transition-delay:calc(var(--i,0)*140ms)}
+.s-card:nth-child(4){grid-column:2/4}.s-card:nth-child(5){grid-column:4/6}
+.s-card::before{content:"";position:absolute;width:220px;height:220px;right:-80px;top:-90px;border-radius:50%;background:var(--or);filter:blur(70px);opacity:0;transition:opacity .6s}
+.s-card:nth-child(even)::before{background:var(--bl)}
+.s-card.in:hover{transform:translateY(-10px);border-color:rgba(var(--or-rgb),.65);box-shadow:0 26px 56px -22px rgba(var(--or-rgb),.45);transition-delay:0s}
+.s-card:nth-child(even).in:hover{border-color:rgba(var(--bl-rgb),.65);box-shadow:0 26px 56px -22px rgba(var(--bl-rgb),.5)}
+.s-card:hover::before{opacity:.28}
+.ico{position:relative;width:62px;height:62px;border-radius:16px;display:grid;place-items:center;background:rgba(var(--or-rgb),.12);margin-bottom:26px;transition:transform .5s var(--ease)}
+.s-card:nth-child(even) .ico{background:rgba(var(--bl-rgb),.13)}
+.s-card:hover .ico{transform:scale(1.08) rotate(-4deg)}
+.ico svg{width:30px;height:30px;fill:none;stroke:var(--or);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.s-card:nth-child(even) .ico svg{stroke:var(--bl)}
+.s-card h3{position:relative;font-size:1.4rem;margin-bottom:10px}
+.s-card p{position:relative;color:var(--mute)}
+@media(max-width:980px){.s-grid{grid-template-columns:repeat(2,1fr)}.s-card,.s-card:nth-child(4),.s-card:nth-child(5){grid-column:auto}.s-card:nth-child(5){grid-column:1/-1}}
+@media(max-width:600px){.s-grid{grid-template-columns:1fr}.s-card:nth-child(5){grid-column:auto}.s-hero{padding-top:130px}}
+.s-card .price{margin-top:16px;font:800 1.05rem 'Syne',sans-serif;color:var(--or)}
